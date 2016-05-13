@@ -8,33 +8,31 @@
 #include <vector>
 
 using namespace std;
-
+typedef long long ll;
 
 class BigInteger {
 public:
     std::vector<int> vecValue; //vector that stored preprocessed big integer
 
-    BigInteger();
+    BigInteger() ;
     BigInteger(std::string inString);
+    BigInteger(ll inNumber);
+
     ~BigInteger();
 
-    BigInteger add(const BigInteger& bigB) {
-        BigInteger newBig;
-        int i;
-        for (i = 0; i < min(vecValue.size(), bigB.vecValue.size()); ++i) {
-            newBig.vecValue.push_back(vecValue[i] + bigB.vecValue[i]);
-        }
+    BigInteger add(const BigInteger& bigB);
 
-        const std::vector<int> &temp = vecValue.size() <= bigB.vecValue.size() ? vecValue : bigB.vecValue;
-
-        for (; i < temp.size(); ++i) {
-            newBig.vecValue.push_back(temp[i]);
-        }
-        return newBig;
+    BigInteger operator +(const BigInteger& bigB) {
+        return this->add(bigB);
     }
+
+
+
+
     void show_vector() {
-        for (auto i : vecValue)
-            std::cout << i << " ";
+        for (int i = int(vecValue.size()) - 1; i >= 0; i -= 1) {
+            std::cout << vecValue[i] << " ";
+        }
         std::cout << std::endl;
     }
 

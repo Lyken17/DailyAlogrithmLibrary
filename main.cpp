@@ -9,12 +9,11 @@ using namespace std;
 
 int main() {
     string inA, inB, temp;
-    std::ifstream file("/Users/lykensyu/ClionProjects/MyLibrary/data.txt");
+    std::ifstream file("/home/cs-user/ClionProjects/DailyAlogrithmLibrary/data.txt");
 
     file >> inA >> inB;
+
     //cout << inA << endl;
-
-
     //cout << inA << endl;
 
     BigInteger bigA(inA);
@@ -22,6 +21,8 @@ int main() {
     BigInteger bigB(inB);
     bigB.show_vector();
 
+    BigInteger bigC = bigA + bigB;
+    bigC.show_vector();
 
     return 0;
 }
